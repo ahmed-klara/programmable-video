@@ -3,6 +3,7 @@ package twilio.flutter.twilio_programmable_video
 import android.content.Context
 import com.twilio.video.VideoTrack
 import com.twilio.video.VideoView
+import com.twilio.video.VideoScaleType
 import io.flutter.plugin.common.MessageCodec
 import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.platform.PlatformViewFactory
@@ -41,6 +42,7 @@ class ParticipantViewFactory(createArgsCodec: MessageCodec<Any>, private val plu
         }
         val videoView = VideoView(context as Context)
         videoView.mirror = params["mirror"] as Boolean
+        videoView.videoScaleType = VideoScaleType.ASPECT_FIT;
         return ParticipantView(videoView, videoTrack)
     }
 
